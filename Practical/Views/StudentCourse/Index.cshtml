@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Practical.Models.StudentCourse>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseRowId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentRowId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseRowId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentRowId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.StudentCourseRowId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.StudentCourseRowId })
+        </td>
+    </tr>
+}
+
+</table>

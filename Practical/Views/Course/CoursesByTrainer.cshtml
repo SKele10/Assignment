@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Practical.Models.Course>
+
+@{
+    ViewBag.Title = "CoursesByTrainer";
+}
+
+<h2>CoursesByTrainer</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseArea)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Modules)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseArea)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modules)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.CourseRowId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.CourseRowId })
+        </td>
+    </tr>
+}
+
+</table>
